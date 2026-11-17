@@ -37,7 +37,7 @@ export default function BackgroundMusic() {
         aria-label={muted ? "Unmute music" : "Mute music"}
         style={{
           position: "fixed", right: 16, bottom: 16, zIndex: 1000,
-          width: 40, height: 40, borderRadius: "50%",
+          width: 44, height: 44, borderRadius: "50%",
           border: "2px solid #fff", background: "rgba(0,0,0,0.6)",
           color: "#fff", fontSize: 18, cursor: "pointer",
         }}

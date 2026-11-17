@@ -8,13 +8,10 @@ const ITEMS = [
   { id: "sideproj",label: "SIDE PROJECTS", page: "sideproj",fontSize: 56, offsetX: 10, offsetY: 6,  skew: -4,  skewY: 7   },
 ];
 
-const CLIP_SHAPES = [
-  (w, h) => `polygon(0px 0px, ${w}px ${h * 0.5}px, 0px ${h}px)`,
-  (w, h) => `polygon(0px 0px, ${w}px ${h * 0.5}px, 0px ${h}px)`,
-  (w, h) => `polygon(0px 0px, ${w}px ${h * 0.5}px, 0px ${h}px)`,
-  (w, h) => `polygon(0px 0px, ${w}px ${h * 0.5}px, 0px ${h}px)`,
-  (w, h) => `polygon(0px 0px, ${w}px ${h * 0.5}px, 0px ${h}px)`,
-];
+// Sizes are expressed in design pixels scaled by --u (see index.css) so the
+// whole menu scales with the viewport.
+const U = (n) => `calc(${n} * var(--u))`;
+const clip = (w, h) => `polygon(0 0, ${U(w)} ${U(h * 0.5)}, 0 ${U(h)})`;
 
 export default function P3Menu({ onNavigate }) {
   const [active, setActive] = useState(0);
@@ -54,13 +51,13 @@ export default function P3Menu({ onNavigate }) {
           pointer-events: none;
         }
 
-        .p3-stripe  { position:absolute; right:0; top:0; bottom:0; width:5px; background:#c4001a; z-index:10; pointer-events:none; }
-        .p3-stripe2 { position:absolute; right:9px; top:0; bottom:0; width:2px; background:rgba(245,122,139,0.22); z-index:10; pointer-events:none; }
+        .p3-stripe  { position:absolute; right:0; top:0; bottom:0; width:calc(5 * var(--u)); background:#c4001a; z-index:10; pointer-events:none; }
+        .p3-stripe2 { position:absolute; right:calc(9 * var(--u)); top:0; bottom:0; width:2px; background:rgba(245,122,139,0.22); z-index:10; pointer-events:none; }
 
         .p3-menu {
           position: relative;
           z-index: 20;
-          padding: 48px;
+          padding: calc(48 * var(--u));
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -76,7 +73,7 @@ export default function P3Menu({ onNavigate }) {
           line-height: 1;
           text-decoration: none;
           opacity: 0;
-          transform: translateX(36px);
+          transform: translateX(calc(36 * var(--u)));
           transition: opacity 0.38s ease, transform 0.38s cubic-bezier(0.22,1,0.36,1);
         }
         .p3-row.mounted {
@@ -90,7 +87,7 @@ export default function P3Menu({ onNavigate }) {
           transform: translate(-50%, -50%);
           width: 120%; height: 200%;
           background: radial-gradient(ellipse at center, rgba(255,100,180,0.35) 0%, transparent 70%);
-          filter: blur(18px);
+          filter: blur(calc(18 * var(--u)));
           z-index: 0;
           pointer-events: none;
           opacity: 0;
@@ -106,10 +103,10 @@ export default function P3Menu({ onNavigate }) {
         }
 
         @keyframes p3-shadow-pop {
-          0%   { transform: translateY(-40%) translateX(-12px) scaleX(0) scaleY(1); }
-          55%  { transform: translateY(-46%) translateX(-15px) scaleX(1.22) scaleY(1.18); }
-          75%  { transform: translateY(-39%) translateX(-11px) scaleX(0.96) scaleY(0.97); }
-          100% { transform: translateY(-40%) translateX(-12px) scaleX(1) scaleY(1); }
+          0%   { transform: translateY(-40%) translateX(calc(-12 * var(--u))) scaleX(0) scaleY(1); }
+          55%  { transform: translateY(-46%) translateX(calc(-15 * var(--u))) scaleX(1.22) scaleY(1.18); }
+          75%  { transform: translateY(-39%) translateX(calc(-11 * var(--u))) scaleX(0.96) scaleY(0.97); }
+          100% { transform: translateY(-40%) translateX(calc(-12 * var(--u))) scaleX(1) scaleY(1); }
         }
 
         .p3-shadow-tri {
@@ -119,7 +116,7 @@ export default function P3Menu({ onNavigate }) {
           background: rgba(235, 80, 120, 0.85);
           z-index: 1;
           pointer-events: none;
-          transform: translateY(-40%) translateX(-12px) scaleX(0);
+          transform: translateY(-40%) translateX(calc(-12 * var(--u))) scaleX(0);
           transition: transform 0.18s ease;
         }
         .p3-shadow-tri.pop {
@@ -170,34 +167,34 @@ export default function P3Menu({ onNavigate }) {
 
         .p3-hint {
           position: absolute;
-          bottom: 24px; right: 28px;
+          bottom: calc(24 * var(--u)); right: max(72px, calc(28 * var(--u)));
           z-index: 20;
           display: flex; flex-direction: column;
-          align-items: flex-end; gap: 5px;
+          align-items: flex-end; gap: calc(5 * var(--u));
           font-family: 'Anton', sans-serif;
           opacity: 0;
           transition: opacity 0.5s ease 0.9s;
         }
         .p3-hint.mounted { opacity: 1; }
         .p3-hint-row {
-          display: flex; align-items: center; gap: 8px;
-          font-size: 13px; letter-spacing: 2px;
+          display: flex; align-items: center; gap: calc(8 * var(--u));
+          font-size: max(10px, calc(13 * var(--u))); letter-spacing: 2px;
           color: rgba(255,255,255,0.28);
         }
         .p3-hint-key {
           border: 1px solid rgba(255,255,255,0.2);
           border-radius: 3px;
-          padding: 1px 6px; font-size: 11px;
+          padding: 1px calc(6 * var(--u)); font-size: calc(11 * var(--u));
         }
 
         .p3-name-tag {
           position: absolute;
-          top: 18px;
-          left: 22px;
+          top: calc(18 * var(--u));
+          left: calc(22 * var(--u));
           z-index: 20;
           font-family: 'Anton', sans-serif;
           font-style: italic;
-          font-size: 108px;
+          font-size: calc(108 * var(--u));
           line-height: 0.88;
           letter-spacing: 2px;
           color: rgba(10, 10, 14, 0.64);
@@ -229,7 +226,6 @@ export default function P3Menu({ onNavigate }) {
             const opacity = isActive ? 1 : Math.max(0.5, 1 - dist * 0.2);
             const estW = item.label.length * item.fontSize * 0.6 + 80;
             const estH = item.fontSize * 0.94;
-            const clipFn = CLIP_SHAPES[i] ?? CLIP_SHAPES[0];
 
             return (
               <a
@@ -237,8 +233,8 @@ export default function P3Menu({ onNavigate }) {
                 href="#"
                 className={`p3-row ${isActive ? "active" : ""} ${mounted ? "mounted" : ""}`}
                 style={{
-                  marginRight: item.offsetX,
-                  marginTop: item.offsetY,
+                  marginRight: U(item.offsetX),
+                  marginTop: U(item.offsetY),
                   transitionDelay: mounted ? `${i * 80}ms` : "0ms",
                 }}
                 onClick={(e) => { e.preventDefault(); onNavigate?.(item.page); }}
@@ -254,29 +250,29 @@ export default function P3Menu({ onNavigate }) {
                     key={isActive ? `pop-${i}-${animKey}` : `idle-${i}`}
                     className={`p3-shadow-tri${isActive ? ' pop' : ''}`}
                     style={{
-                      width: estW,
-                      height: estH,
-                      clipPath: clipFn(estW, estH),
+                      width: U(estW),
+                      height: U(estH),
+                      clipPath: clip(estW, estH),
                     }}
                   />
                   <div
                     className="p3-highlight"
                     style={{
-                      width: estW,
-                      height: estH,
-                      clipPath: clipFn(estW, estH),
+                      width: U(estW),
+                      height: U(estH),
+                      clipPath: clip(estW, estH),
                       transform: `translateY(-50%) scaleX(${isActive ? 1 : 0})`,
                     }}
                   />
                   <div className="p3-label-wrap" style={{ opacity }}>
-                    <span className="p3-label-base p3-label-dark" style={{ fontSize: item.fontSize }}>
+                    <span className="p3-label-base p3-label-dark" style={{ fontSize: U(item.fontSize) }}>
                       {item.label}
                     </span>
                     <span
                       className="p3-label-base p3-label-bright"
                       style={{
-                        fontSize: item.fontSize,
-                        clipPath: clipFn(estW, estH),
+                        fontSize: U(item.fontSize),
+                        clipPath: clip(estW, estH),
                       }}
                     >
                       {item.label}

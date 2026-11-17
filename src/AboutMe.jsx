@@ -29,7 +29,6 @@ const REVEAL_CONTENT = [
       upper: [
       "180 cm of questionable decisions",
       "I debug code better than my life",
-      "Powered by protein and curiosity",
       "Old soul, modern problems",
       "Main character in games, NPC in real life",
       "An outlaw in imagination, a developer by profession"
@@ -44,8 +43,7 @@ const REVEAL_CONTENT = [
       "Wild West enthusiast",
       "Doc Holliday admirer",
       "Red Dead Redemption devotee",
-      "Dark humor connoisseur",
-      "Occasionally quotes fictional outlaws"
+      "Dark humor connoisseur"
       ],
       lower: "I'm your huckleberry."
       }
@@ -209,7 +207,7 @@ export default function AboutMe() {
           flex-direction: column;
           align-items: flex-start;
           justify-content: center;
-          gap: 6px;
+          gap: calc(6 * var(--u));
           padding-left: 0;
         }
 
@@ -234,11 +232,11 @@ export default function AboutMe() {
         @keyframes sc-reveal-bar-in {
           0% {
             opacity: 0;
-            transform: translateX(-120px) rotate(-20deg) scaleX(0.72);
+            transform: translateX(calc(-120 * var(--u))) rotate(-20deg) scaleX(0.72);
           }
           60% {
             opacity: 0.96;
-            transform: translateX(18px) rotate(-20deg) scaleX(1.03);
+            transform: translateX(calc(18 * var(--u))) rotate(-20deg) scaleX(1.03);
           }
           100% {
             opacity: 0.92;
@@ -249,12 +247,12 @@ export default function AboutMe() {
         @keyframes sc-portrait-in {
           0% {
             opacity: 0;
-            transform: translateX(78px) skewX(-8deg) scale(0.94);
-            filter: blur(8px);
+            transform: translateX(calc(78 * var(--u))) skewX(-8deg) scale(0.94);
+            filter: blur(calc(8 * var(--u)));
           }
           55% {
             opacity: 0.9;
-            transform: translateX(-8px) skewX(-8deg) scale(1.015);
+            transform: translateX(calc(-8 * var(--u))) skewX(-8deg) scale(1.015);
             filter: blur(0);
           }
           100% {
@@ -266,12 +264,12 @@ export default function AboutMe() {
 
         @keyframes sc-arrow-left {
           0%, 100% { transform: translateX(0); opacity: 1; }
-          50% { transform: translateX(-5px); opacity: 0.4; }
+          50% { transform: translateX(calc(-5 * var(--u))); opacity: 0.4; }
         }
 
         @keyframes sc-arrow-right {
           0%, 100% { transform: translateX(0); opacity: 1; }
-          50% { transform: translateX(5px); opacity: 0.4; }
+          50% { transform: translateX(calc(5 * var(--u))); opacity: 0.4; }
         }
 
         .sc-main-portrait-shell {
@@ -285,7 +283,7 @@ export default function AboutMe() {
           height: 100vh;
           overflow: hidden;
           opacity: 0;
-          transform: translateX(24px) skewX(-8deg) scale(0.98);
+          transform: translateX(calc(24 * var(--u))) skewX(-8deg) scale(0.98);
           transition: opacity 0.35s ease, transform 0.35s ease;
         }
         .sc-main-portrait-shell.mounted {
@@ -304,13 +302,13 @@ export default function AboutMe() {
           pointer-events: none;
           background:
             linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(243,246,252,0.98) 100%);
-          clip-path: polygon(0 0, 100% 0, calc(100% - 88px) 100%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, calc(100% - calc(88 * var(--u))) 100%, 0 100%);
           box-shadow:
             0 0 0 2px rgba(255,255,255,0.18),
-            18px 0 0 rgba(215, 13, 44, 0.82),
-            28px 0 0 rgba(255,255,255,0.26);
+            calc(18 * var(--u)) 0 0 rgba(215, 13, 44, 0.82),
+            calc(28 * var(--u)) 0 0 rgba(255,255,255,0.26);
           opacity: 0;
-          transform: translateX(-40px) rotate(-20deg);
+          transform: translateX(calc(-40 * var(--u))) rotate(-20deg);
           transform-origin: left bottom;
           transition: opacity 0.3s ease, transform 0.35s ease;
         }
@@ -325,7 +323,7 @@ export default function AboutMe() {
           top: 0;
           left: 0;
           width: 100%;
-          height: 8px;
+          height: calc(8 * var(--u));
           background: linear-gradient(180deg, #e03d31 0%, #eb3333 100%);
           clip-path: inherit;
         }
@@ -336,7 +334,7 @@ export default function AboutMe() {
           width: 100%;
           height: 40%;
           background: rgba(0, 0, 0, 0.92);
-          clip-path: polygon(0 0, 100% 0, calc(100% - 22px) 100%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, calc(100% - calc(22 * var(--u))) 100%, 0 100%);
           box-shadow: 0 0 0 1px rgba(255,255,255,0.06);
           pointer-events: all;
           cursor: pointer;
@@ -344,14 +342,14 @@ export default function AboutMe() {
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          gap: 10px;
+          gap: calc(10 * var(--u));
           color: #fff;
           text-align: center;
         }
         .sc-reveal-upper-line {
           font-family: 'Montserrat', sans-serif;
           font-weight: 300;
-          font-size: 20px;
+          font-size: max(10px, calc(20 * var(--u)));
           letter-spacing: 0.5px;
           line-height: 1.15;
         }
@@ -362,7 +360,7 @@ export default function AboutMe() {
           width: 48%;
           height: 20%;
           background: rgba(0, 0, 0, 0.92);
-          clip-path: polygon(0 0, 100% 0, calc(100% - 22px) 100%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, calc(100% - calc(22 * var(--u))) 100%, 0 100%);
           box-shadow: 0 0 0 1px rgba(255,255,255,0.06);
           display: flex;
           align-items: center;
@@ -370,14 +368,14 @@ export default function AboutMe() {
           color: #fff;
           font-family: 'Montserrat', sans-serif;
           font-weight: 300;
-          font-size: 22px;
+          font-size: max(10px, calc(22 * var(--u)));
           letter-spacing: 0.4px;
           text-transform: lowercase;
-          padding-left: 22px;
+          padding-left: calc(22 * var(--u));
         }
 
         @keyframes sc-right-nav-pop {
-          0%   { opacity: 0; transform: scale(0.55) translateY(-10px); }
+          0%   { opacity: 0; transform: scale(0.55) translateY(calc(-10 * var(--u))); }
           65%  { opacity: 1; transform: scale(1.1) translateY(2px); }
           100% { opacity: 1; transform: scale(1) translateY(0); }
         }
@@ -387,16 +385,16 @@ export default function AboutMe() {
           left: 6vw;
           display: flex;
           align-items: center;
-          gap: 6px;
+          gap: calc(6 * var(--u));
           pointer-events: none;
           z-index: 14;
-          transform: translateX(-40px) rotate(-20deg);
+          transform: translateX(calc(-40 * var(--u))) rotate(-20deg);
           transform-origin: left bottom;
           animation: sc-right-nav-pop 0.38s cubic-bezier(0.22,1,0.36,1) both;
         }
         .sc-right-nav .sc-nav-btn {
           font-family: 'Bebas Neue', sans-serif;
-          font-size: 100px;
+          font-size: calc(100 * var(--u));
           letter-spacing: 3px;
           line-height: 1;
           user-select: none;
@@ -405,7 +403,7 @@ export default function AboutMe() {
           paint-order: stroke fill;
           background: none;
           border: none;
-          padding: 0 6px;
+          padding: 0 calc(6 * var(--u));
           pointer-events: all;
           cursor: pointer;
           transition: transform 0.15s ease, color 0.15s ease;
@@ -413,22 +411,22 @@ export default function AboutMe() {
         .sc-right-nav .sc-nav-btn:hover { color: #ff3b4f; transform: scale(1.1); }
         .sc-right-nav .sc-nav-btn:active { transform: scale(0.94); }
         .sc-right-nav .sc-nav-dot {
-          width: 16px;
-          height: 16px;
-          border-radius: 999px;
+          width: calc(16 * var(--u));
+          height: calc(16 * var(--u));
+          border-radius: calc(999 * var(--u));
           background: #111;
-          margin: 0 10px;
+          margin: 0 calc(10 * var(--u));
           flex-shrink: 0;
         }
         .sc-right-nav .sc-nav-arrow {
           font-family: 'Bebas Neue', sans-serif;
-          font-size: 22px;
+          font-size: max(10px, calc(22 * var(--u)));
           color: #c4001a;
           display: inline-block;
           user-select: none;
           pointer-events: all;
           cursor: pointer;
-          padding: 8px;
+          padding: calc(8 * var(--u));
         }
         .sc-right-nav .sc-nav-arrow.left  { animation: sc-arrow-left  0.8s ease-in-out infinite; }
         .sc-right-nav .sc-nav-arrow.right { animation: sc-arrow-right 0.8s ease-in-out infinite; }
@@ -438,7 +436,7 @@ export default function AboutMe() {
           height: 100%;
           object-fit: cover;
           object-position: top right;
-          transform: skewX(8deg) scale(1.08) translate(calc(var(--mx, 0) * -10px), calc(var(--my, 0) * -8px));
+          transform: skewX(8deg) scale(1.08) translate(calc(var(--mx, 0) * calc(-10 * var(--u))), calc(var(--my, 0) * calc(-8 * var(--u))));
           transform-origin: top right;
           transition: transform 0.2s ease-out;
           user-select: none;
@@ -449,13 +447,13 @@ export default function AboutMe() {
         .sc-bar {
           position: relative;
           width: 45vw;
-          height: 64px;
+          height: calc(64 * var(--u));
           transition: height 0.3s cubic-bezier(0.22,1,0.36,1);
           background: #111;
           cursor: pointer;
           pointer-events: all;
-          clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
-          box-shadow: 0 6px 24px rgba(0,0,0,0.65);
+          clip-path: polygon(0 0, 100% 0, calc(100% - calc(14 * var(--u))) 100%, 0 100%);
+          box-shadow: 0 calc(6 * var(--u)) calc(24 * var(--u)) rgba(0,0,0,0.65);
           z-index: 1;
         }
 
@@ -466,8 +464,8 @@ export default function AboutMe() {
           transform: translateX(-100%);
           transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
         }
-        .sc-bar-outer.active .sc-bar     { height: 90px; }
-        .sc-bar-outer.active .sc-bar-red { height: 90px; }
+        .sc-bar-outer.active .sc-bar     { height: calc(90 * var(--u)); }
+        .sc-bar-outer.active .sc-bar-red { height: calc(90 * var(--u)); }
         .sc-bar-outer.mounted { transform: translateX(0); }
         .sc-bar-outer:nth-child(1) { transition-delay: 0ms; }
         .sc-bar-outer:nth-child(2) { transition-delay: 80ms; }
@@ -478,10 +476,10 @@ export default function AboutMe() {
           position: absolute;
           top: 0; left: 0;
           width: 45vw;
-          height: 64px;
+          height: calc(64 * var(--u));
           background: #c4001a;
-          clip-path: polygon(50% 0, 100% 0, 100% 100%, calc(50% - 10px) 100%);
-          transform: translateY(-7px);
+          clip-path: polygon(50% 0, 100% 0, 100% 100%, calc(50% - calc(10 * var(--u))) 100%);
+          transform: translateY(calc(-7 * var(--u)));
           opacity: 0;
           transition: opacity 0.2s ease;
           z-index: 0;
@@ -495,12 +493,12 @@ export default function AboutMe() {
           inset: 0;
           width: 100%;
           background: #ffffff;
-          clip-path: polygon(100% 0, 100% 0, calc(100% - 32px) 100%, calc(100% - 32px) 100%);
+          clip-path: polygon(100% 0, 100% 0, calc(100% - calc(32 * var(--u))) 100%, calc(100% - calc(32 * var(--u))) 100%);
           transition: clip-path 0.35s cubic-bezier(0.22, 1, 0.36, 1);
           z-index: 0;
         }
         .sc-bar-outer.active .sc-bar-fill {
-          clip-path: polygon(22% 0, 100% 0, calc(100% - 14px) 100%, calc(22% + 138px) 100%);
+          clip-path: polygon(22% 0, 100% 0, calc(100% - calc(14 * var(--u))) 100%, calc(22% + calc(138 * var(--u))) 100%);
         }
 
         /* shade on the left edge of the white fill */
@@ -522,7 +520,7 @@ export default function AboutMe() {
           content: '';
           position: absolute;
           bottom: 0; left: 0; right: 0;
-          height: 6px;
+          height: calc(6 * var(--u));
           background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 100%);
           z-index: 10;
           pointer-events: none;
@@ -536,7 +534,7 @@ export default function AboutMe() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 0 20px 0 20px;
+          padding: 0 calc(20 * var(--u)) 0 calc(20 * var(--u));
         }
 
         /* left: role label */
@@ -545,13 +543,13 @@ export default function AboutMe() {
           align-items: center;
           flex-shrink: 0;
           font-family: 'Anton', sans-serif;
-          font-size: 50px;
+          font-size: calc(50 * var(--u));
           letter-spacing: -2px;
           color: #ffffff;
           transform: rotate(-30deg);
           user-select: none;
           line-height: 1;
-          padding: 0 16px 0 8px;
+          padding: 0 calc(16 * var(--u)) 0 calc(8 * var(--u));
         }
 
         /* left: icon + name centered in remaining space */
@@ -562,18 +560,18 @@ export default function AboutMe() {
           align-items: center;
           justify-content: center;
           gap: 3px;
-          padding-left: 78px;
+          padding-left: calc(78 * var(--u));
         }
         .sc-main-top {
           display: flex;
           align-items: center;
-          gap: 12px;
+          gap: calc(12 * var(--u));
         }
 
         .sc-icon {
           font-family: 'Bebas Neue', sans-serif;
-          font-size: 22px;
-          width: 32px;
+          font-size: max(10px, calc(22 * var(--u)));
+          width: calc(32 * var(--u));
           text-align: center;
           flex-shrink: 0;
           color: rgba(255,255,255,0.15);
@@ -584,8 +582,8 @@ export default function AboutMe() {
 
         .sc-label {
           font-family: 'Bebas Neue', sans-serif;
-          font-size: 28px;
-          letter-spacing: 4px;
+          font-size: calc(28 * var(--u));
+          letter-spacing: calc(4 * var(--u));
           line-height: 1;
           color: rgba(255,255,255,0.85);
           transition: color 0.2s ease;
@@ -597,8 +595,8 @@ export default function AboutMe() {
         .sc-stats {
           display: flex;
           align-items: center;
-          gap: 10px;
-          padding-right: 24px;
+          gap: calc(10 * var(--u));
+          padding-right: calc(24 * var(--u));
           flex-shrink: 0;
         }
 
@@ -611,14 +609,14 @@ export default function AboutMe() {
         .sc-stat-top {
           display: flex;
           align-items: baseline;
-          gap: 4px;
+          gap: calc(4 * var(--u));
         }
 
         .sc-stat-tag {
           font-family: 'Bebas Neue', sans-serif;
-          font-size: 9px;
+          font-size: max(10px, calc(9 * var(--u)));
           letter-spacing: 1.5px;
-          padding: 1px 4px;
+          padding: 1px calc(4 * var(--u));
           border-width: 1px;
           border-style: solid;
           line-height: 1.4;
@@ -627,7 +625,7 @@ export default function AboutMe() {
 
         .sc-stat-num {
           font-family: 'Bebas Neue', sans-serif;
-          font-size: 26px;
+          font-size: calc(26 * var(--u));
           font-style: italic;
           line-height: 1;
           color: #ffffff;
@@ -658,23 +656,23 @@ export default function AboutMe() {
         .sc-char {
           position: absolute;
           top: 0;
-          left: 110px;
+          left: calc(110 * var(--u));
           height: 100%;
           width: auto;
-          max-width: 160px;
+          max-width: calc(160 * var(--u));
           object-fit: cover;
           object-position: top;
           pointer-events: none;
           z-index: 3;
-          clip-path: polygon(20px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%);
+          clip-path: polygon(calc(20 * var(--u)) 0%, 100% 0%, calc(100% - calc(20 * var(--u))) 100%, 0% 100%);
         }
 
         /* footer hints */
         .sc-footer {
           position: fixed;
-          bottom: 20px; right: 28px;
+          bottom: calc(20 * var(--u)); right: max(72px, calc(28 * var(--u)));
           display: flex; flex-direction: column;
-          align-items: flex-end; gap: 5px;
+          align-items: flex-end; gap: calc(5 * var(--u));
           font-family: 'Bebas Neue', sans-serif;
           z-index: 14;
           opacity: 0;
@@ -683,15 +681,33 @@ export default function AboutMe() {
         .sc-footer.mounted { opacity: 1; }
         .sc-footer-row {
           cursor: pointer; pointer-events: all; transition: color 0.15s ease;
-          display: flex; align-items: center; gap: 8px;
-          font-size: 13px; letter-spacing: 2px;
+          display: flex; align-items: center; gap: calc(8 * var(--u));
+          font-size: max(10px, calc(13 * var(--u))); letter-spacing: 2px;
           color: rgba(255,255,255,0.22);
         }
         .sc-footer-row:hover { color: #fff; }
         .sc-footer-key {
           border: 1px solid rgba(255,255,255,0.15);
           border-radius: 3px;
-          padding: 1px 6px; font-size: 11px;
+          padding: 1px calc(6 * var(--u)); font-size: calc(11 * var(--u));
+        }
+
+        /* ── Portrait phones / tablets ── */
+        @media (max-aspect-ratio: 1/1) {
+          .sc-bar, .sc-bar-red { width: 94vw; }
+          .sc-bar, .sc-bar-red { height: calc(96 * var(--u)); }
+          .sc-bar-outer.active .sc-bar,
+          .sc-bar-outer.active .sc-bar-red { height: calc(130 * var(--u)); }
+          .sc-root { gap: calc(10 * var(--u)); }
+          .sc-label { font-size: max(15px, calc(30 * var(--u))); letter-spacing: 2px; }
+          .sc-main-portrait-shell { width: 100vw; right: 0; z-index: 11; height: 100dvh; }
+          .sc-reveal-panel { top: 52vh; left: 4vw; width: 108vw; height: 50vh; }
+          .sc-reveal-upper-bar { top: 12%; height: 46%; padding-left: 30%; padding-right: 8%; }
+          .sc-reveal-lower-bar { top: 64%; height: 22%; }
+          .sc-reveal-upper-line { font-size: max(12px, calc(24 * var(--u))); }
+          .sc-reveal-lower-bar { font-size: max(12px, calc(26 * var(--u))); width: 62%; }
+          .sc-right-nav { top: 12vh; left: 4vw; }
+          .sc-right-nav .sc-nav-btn { font-size: calc(90 * var(--u)); }
         }
       `}</style>
 

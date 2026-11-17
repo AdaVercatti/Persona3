@@ -88,7 +88,7 @@ export default function Socials() {
           flex-direction: column;
           align-items: flex-start;
           justify-content: center;
-          gap: 6px;
+          gap: calc(6 * var(--u));
           padding-left: 0;
         }
 
@@ -96,13 +96,13 @@ export default function Socials() {
         .sc-bar {
           position: relative;
           width: 45vw;
-          height: 64px;
+          height: calc(64 * var(--u));
           transition: height 0.3s cubic-bezier(0.22,1,0.36,1);
           background: #111;
           cursor: pointer;
           pointer-events: all;
-          clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
-          box-shadow: 0 6px 24px rgba(0,0,0,0.65);
+          clip-path: polygon(0 0, 100% 0, calc(100% - calc(14 * var(--u))) 100%, 0 100%);
+          box-shadow: 0 calc(6 * var(--u)) calc(24 * var(--u)) rgba(0,0,0,0.65);
           z-index: 1;
         }
 
@@ -113,8 +113,8 @@ export default function Socials() {
           transform: translateX(-100%);
           transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
         }
-        .sc-bar-outer.active .sc-bar     { height: 90px; }
-        .sc-bar-outer.active .sc-bar-red { height: 90px; }
+        .sc-bar-outer.active .sc-bar     { height: calc(90 * var(--u)); }
+        .sc-bar-outer.active .sc-bar-red { height: calc(90 * var(--u)); }
         .sc-bar-outer.mounted { transform: translateX(0); }
         .sc-bar-outer:nth-child(1) { transition-delay: 0ms; }
         .sc-bar-outer:nth-child(2) { transition-delay: 80ms; }
@@ -125,10 +125,10 @@ export default function Socials() {
           position: absolute;
           top: 0; left: 0;
           width: 45vw;
-          height: 64px;
+          height: calc(64 * var(--u));
           background: #c4001a;
-          clip-path: polygon(50% 0, 100% 0, 100% 100%, calc(50% - 10px) 100%);
-          transform: translateY(-7px);
+          clip-path: polygon(50% 0, 100% 0, 100% 100%, calc(50% - calc(10 * var(--u))) 100%);
+          transform: translateY(calc(-7 * var(--u)));
           opacity: 0;
           transition: opacity 0.2s ease;
           z-index: 0;
@@ -142,12 +142,12 @@ export default function Socials() {
           inset: 0;
           width: 100%;
           background: #ffffff;
-          clip-path: polygon(100% 0, 100% 0, calc(100% - 32px) 100%, calc(100% - 32px) 100%);
+          clip-path: polygon(100% 0, 100% 0, calc(100% - calc(32 * var(--u))) 100%, calc(100% - calc(32 * var(--u))) 100%);
           transition: clip-path 0.35s cubic-bezier(0.22, 1, 0.36, 1);
           z-index: 0;
         }
         .sc-bar-outer.active .sc-bar-fill {
-          clip-path: polygon(22% 0, 100% 0, calc(100% - 14px) 100%, calc(22% + 138px) 100%);
+          clip-path: polygon(22% 0, 100% 0, calc(100% - calc(14 * var(--u))) 100%, calc(22% + calc(138 * var(--u))) 100%);
         }
 
         /* shade on the left edge of the white fill */
@@ -169,7 +169,7 @@ export default function Socials() {
           content: '';
           position: absolute;
           bottom: 0; left: 0; right: 0;
-          height: 6px;
+          height: calc(6 * var(--u));
           background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 100%);
           z-index: 10;
           pointer-events: none;
@@ -183,7 +183,7 @@ export default function Socials() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 0 20px 0 20px;
+          padding: 0 calc(20 * var(--u)) 0 calc(20 * var(--u));
         }
 
         /* left: role label */
@@ -192,13 +192,13 @@ export default function Socials() {
           align-items: center;
           flex-shrink: 0;
           font-family: 'Anton', sans-serif;
-          font-size: 50px;
+          font-size: calc(50 * var(--u));
           letter-spacing: -2px;
           color: #ffffff;
           transform: rotate(-30deg);
           user-select: none;
           line-height: 1;
-          padding: 0 16px 0 8px;
+          padding: 0 calc(16 * var(--u)) 0 calc(8 * var(--u));
         }
 
         /* left: icon + name centered in remaining space */
@@ -213,13 +213,13 @@ export default function Socials() {
         .sc-main-top {
           display: flex;
           align-items: center;
-          gap: 12px;
+          gap: calc(12 * var(--u));
         }
 
         .sc-icon {
           font-family: 'Bebas Neue', sans-serif;
-          font-size: 22px;
-          width: 32px;
+          font-size: max(10px, calc(22 * var(--u)));
+          width: calc(32 * var(--u));
           text-align: center;
           flex-shrink: 0;
           color: rgba(255,255,255,0.15);
@@ -230,8 +230,8 @@ export default function Socials() {
 
         .sc-label {
           font-family: 'Bebas Neue', sans-serif;
-          font-size: 28px;
-          letter-spacing: 4px;
+          font-size: calc(28 * var(--u));
+          letter-spacing: calc(4 * var(--u));
           line-height: 1;
           color: rgba(255,255,255,0.85);
           transition: color 0.2s ease;
@@ -242,24 +242,24 @@ export default function Socials() {
         /* lb/rb nav row */
         @keyframes sc-arrow-left {
           0%, 100% { transform: translateX(0); opacity: 1; }
-          50%       { transform: translateX(-5px); opacity: 0.4; }
+          50%       { transform: translateX(calc(-5 * var(--u))); opacity: 0.4; }
         }
         @keyframes sc-arrow-right {
           0%, 100% { transform: translateX(0); opacity: 1; }
-          50%       { transform: translateX(5px); opacity: 0.4; }
+          50%       { transform: translateX(calc(5 * var(--u))); opacity: 0.4; }
         }
         .sc-nav-btn {
           font-family: 'Bebas Neue', sans-serif;
-          font-size: 12px;
+          font-size: max(10px, calc(12 * var(--u)));
           letter-spacing: 2px;
           color: #111;
           border: 1px solid rgba(0,0,0,0.35);
-          padding: 1px 7px;
+          padding: 1px calc(7 * var(--u));
           line-height: 1.5;
           user-select: none;
         }
         .sc-nav-arrow {
-          font-size: 12px;
+          font-size: max(10px, calc(12 * var(--u)));
           color: #c4001a;
           display: inline-block;
         }
@@ -270,8 +270,8 @@ export default function Socials() {
         .sc-stats {
           display: flex;
           align-items: center;
-          gap: 10px;
-          padding-right: 24px;
+          gap: calc(10 * var(--u));
+          padding-right: calc(24 * var(--u));
           flex-shrink: 0;
         }
 
@@ -284,14 +284,14 @@ export default function Socials() {
         .sc-stat-top {
           display: flex;
           align-items: baseline;
-          gap: 4px;
+          gap: calc(4 * var(--u));
         }
 
         .sc-stat-tag {
           font-family: 'Bebas Neue', sans-serif;
-          font-size: 9px;
+          font-size: max(10px, calc(9 * var(--u)));
           letter-spacing: 1.5px;
-          padding: 1px 4px;
+          padding: 1px calc(4 * var(--u));
           border-width: 1px;
           border-style: solid;
           line-height: 1.4;
@@ -300,7 +300,7 @@ export default function Socials() {
 
         .sc-stat-num {
           font-family: 'Bebas Neue', sans-serif;
-          font-size: 26px;
+          font-size: calc(26 * var(--u));
           font-style: italic;
           line-height: 1;
           color: #ffffff;
@@ -331,37 +331,37 @@ export default function Socials() {
         .sc-char {
           position: absolute;
           top: 0;
-          left: 110px;
+          left: calc(110 * var(--u));
           height: 100%;
           width: auto;
-          max-width: 160px;
+          max-width: calc(160 * var(--u));
           object-fit: cover;
           object-position: top;
           pointer-events: none;
           z-index: 3;
-          clip-path: polygon(20px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%);
+          clip-path: polygon(calc(20 * var(--u)) 0%, 100% 0%, calc(100% - calc(20 * var(--u))) 100%, 0% 100%);
         }
 
         /* right-side nav bar */
         @keyframes sc-right-nav-pop {
-          0%   { opacity: 0; transform: scale(0.55) translateY(-10px); }
+          0%   { opacity: 0; transform: scale(0.55) translateY(calc(-10 * var(--u))); }
           65%  { opacity: 1; transform: scale(1.1) translateY(2px); }
           100% { opacity: 1; transform: scale(1) translateY(0); }
         }
         .sc-right-nav {
           position: fixed;
-          top: 40px;
-          right: 40px;
+          top: calc(40 * var(--u));
+          right: calc(40 * var(--u));
           display: flex;
           align-items: center;
-          gap: 6px;
+          gap: calc(6 * var(--u));
           pointer-events: none;
           z-index: 50;
           animation: sc-right-nav-pop 0.38s cubic-bezier(0.22,1,0.36,1) both;
         }
         .sc-right-nav .sc-nav-btn {
           font-family: 'Bebas Neue', sans-serif;
-          font-size: 100px;
+          font-size: calc(100 * var(--u));
           letter-spacing: 3px;
           line-height: 1;
           user-select: none;
@@ -370,20 +370,20 @@ export default function Socials() {
           paint-order: stroke fill;
           background: none;
           border: none;
-          padding: 0 6px;
+          padding: 0 calc(6 * var(--u));
         }
         .sc-right-nav .sc-nav-label {
           font-family: 'Bebas Neue', sans-serif;
-          font-size: 28px;
+          font-size: calc(28 * var(--u));
           letter-spacing: 3px;
           line-height: 1;
           user-select: none;
           color: #111;
-          padding: 0 8px;
+          padding: 0 calc(8 * var(--u));
         }
         .sc-right-nav .sc-nav-arrow {
           font-family: 'Bebas Neue', sans-serif;
-          font-size: 22px;
+          font-size: max(10px, calc(22 * var(--u)));
           color: #c4001a;
           display: inline-block;
           user-select: none;
@@ -393,15 +393,16 @@ export default function Socials() {
 
         /* info bar under nav */
         @keyframes sc-infobar-in {
-          0%   { opacity: 0; transform: translateX(40px); }
-          60%  { opacity: 1; transform: translateX(-4px); }
+          0%   { opacity: 0; transform: translateX(calc(40 * var(--u))); }
+          60%  { opacity: 1; transform: translateX(calc(-4 * var(--u))); }
           100% { opacity: 1; transform: translateX(0); }
         }
         .sc-info-bar-wrap {
           position: fixed;
           right: 0;
           left: 65%;
-          height: 46px;
+          top: calc((155 + var(--i, 0) * 52) * var(--u));
+          height: calc(46 * var(--u));
           background: transparent;
           pointer-events: all;
           cursor: pointer;
@@ -412,7 +413,7 @@ export default function Socials() {
         .sc-info-bar-wrap.selected {
           background: #111;
           padding: 1.5px;
-          border-radius: 8px;
+          border-radius: calc(8 * var(--u));
         }
         .sc-info-bar {
           position: relative;
@@ -425,11 +426,11 @@ export default function Socials() {
         }
         .sc-info-bar-wrap.selected .sc-info-bar {
           background: #fff;
-          border-radius: 7px;
+          border-radius: calc(7 * var(--u));
         }
         .sc-info-bar-new {
           position: absolute;
-          left: -40px;
+          left: calc(-40 * var(--u));
           bottom: 0;
           height: 65%;
           width: auto;
@@ -440,17 +441,17 @@ export default function Socials() {
           content: '';
           position: absolute;
           top: 0; left: 0; right: 0;
-          height: 4px;
+          height: calc(4 * var(--u));
           background: #c4001a;
           z-index: 1;
         }
         .sc-info-bar-text {
           flex: 1;
           font-family: 'Bebas Neue', sans-serif;
-          font-size: 22px;
+          font-size: max(10px, calc(22 * var(--u)));
           letter-spacing: 2px;
           color: #111;
-          padding: 0 14px;
+          padding: 0 calc(14 * var(--u));
           user-select: none;
         }
         .sc-info-bar-box {
@@ -458,14 +459,14 @@ export default function Socials() {
           background: #000;
           display: flex;
           align-items: center;
-          padding: 0 12px;
+          padding: 0 calc(12 * var(--u));
           font-family: 'Bebas Neue', sans-serif;
-          font-size: 20px;
+          font-size: max(10px, calc(20 * var(--u)));
           letter-spacing: 1px;
           color: #fff;
           flex-shrink: 0;
-          border-radius: 6px;
-          margin-right: 4px;
+          border-radius: calc(6 * var(--u));
+          margin-right: calc(4 * var(--u));
           user-select: none;
         }
 
@@ -473,7 +474,7 @@ export default function Socials() {
           height: 55%;
           width: auto;
           flex-shrink: 0;
-          margin-left: 14px;
+          margin-left: calc(14 * var(--u));
           object-fit: contain;
           pointer-events: none;
           user-select: none;
@@ -481,10 +482,10 @@ export default function Socials() {
 
         .sc-info-bar-count {
           font-family: 'Bebas Neue', sans-serif;
-          font-size: 22px;
+          font-size: max(10px, calc(22 * var(--u)));
           letter-spacing: 1px;
           color: #111;
-          margin-right: 80px;
+          margin-right: calc(80 * var(--u));
           flex-shrink: 0;
           user-select: none;
         }
@@ -492,9 +493,9 @@ export default function Socials() {
         /* footer hints */
         .sc-footer {
           position: fixed;
-          bottom: 20px; right: 28px;
+          bottom: calc(20 * var(--u)); right: max(72px, calc(28 * var(--u)));
           display: flex; flex-direction: column;
-          align-items: flex-end; gap: 5px;
+          align-items: flex-end; gap: calc(5 * var(--u));
           font-family: 'Bebas Neue', sans-serif;
           z-index: 50;
           opacity: 0;
@@ -502,14 +503,38 @@ export default function Socials() {
         }
         .sc-footer.mounted { opacity: 1; }
         .sc-footer-row {
-          display: flex; align-items: center; gap: 8px;
-          font-size: 13px; letter-spacing: 2px;
+          display: flex; align-items: center; gap: calc(8 * var(--u));
+          font-size: max(10px, calc(13 * var(--u))); letter-spacing: 2px;
           color: rgba(255,255,255,0.22);
         }
         .sc-footer-key {
           border: 1px solid rgba(255,255,255,0.15);
           border-radius: 3px;
-          padding: 1px 6px; font-size: 11px;
+          padding: 1px calc(6 * var(--u)); font-size: calc(11 * var(--u));
+        }
+
+        /* ── Narrow / portrait screens ── */
+        @media (max-aspect-ratio: 1/1), (max-width: 760px) {
+          .sc-root { justify-content: flex-start; padding-top: 24vh; gap: calc(10 * var(--u)); }
+          .sc-bar, .sc-bar-red { width: 94vw; }
+          .sc-bar, .sc-bar-red { height: calc(96 * var(--u)); }
+          .sc-bar-outer.active .sc-bar,
+          .sc-bar-outer.active .sc-bar-red { height: calc(130 * var(--u)); }
+          .sc-right-nav { top: 3vh; right: 0; left: 0; justify-content: center; }
+          .sc-right-nav .sc-nav-btn { font-size: calc(80 * var(--u)); }
+          .sc-info-bar-wrap {
+            left: 6vw; right: 6vw;
+            top: calc(58vh + var(--i, 0) * 62 * var(--u));
+            height: calc(52 * var(--u));
+            min-height: 40px;
+          }
+          .sc-char { left: calc(96 * var(--u)); max-width: calc(110 * var(--u)); }
+          .sc-label { font-size: max(14px, calc(26 * var(--u))); letter-spacing: 2px; }
+          .sc-icon { display: none; }
+          .sc-stats { padding-right: calc(10 * var(--u)); }
+          .sc-stat-num { font-size: max(12px, calc(22 * var(--u))); }
+          .sc-info-bar-text { font-size: max(14px, calc(26 * var(--u))); }
+          .sc-info-bar-count { margin-right: 12px; }
         }
       `}</style>
 
@@ -571,7 +596,7 @@ export default function Socials() {
         <div
           className={`sc-info-bar-wrap${activeInfoBar === i ? " selected" : ""}`}
           key={`bar-${active}-${i}`}
-          style={{ top: `${155 + i * 52}px`, animationDelay: `${i * 50}ms` }}
+          style={{ "--i": i, animationDelay: `${i * 50}ms` }}
           onClick={() => setActiveInfoBar(i)}
           onMouseEnter={() => setActiveInfoBar(i)}
         >
